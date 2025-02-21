@@ -4,15 +4,17 @@
 
 typedef struct {
     int idade;
-    int populacao;
-    int pontos;
-    float area;
-    double pib;
+    int populacao;h
+    int pontos;h
+    float area;h
+    double pib;h
     char estado;
     char codigo[4];
     char cidade[12];
-    float densidade;
-    float capita;
+    float densidade;h
+    float capita;h
+    float superpoder;h
+    
 } Carta;
 
 int main() {
@@ -36,11 +38,11 @@ int main() {
         printf("--------------------------------------------------------\n");
 
         printf("Escolha um número de 01 a 04: \n");
-        scanf("%s", cartas[i].codigo);
+        scanf("%s", &cartas[i].codigo);
         printf("--------------------------------------------------------\n");
 
         printf("Nome da Cidade: \n");
-        scanf("%11s", cartas[i].cidade);
+        scanf("%11s", &cartas[i].cidade);
         printf("--------------------------------------------------------\n");
 
         printf("População: \n");
@@ -60,6 +62,8 @@ int main() {
 
         cartas[i].densidade = (cartas[i].populacao / cartas[i].area); 
         cartas[i].capita= (cartas[i].pib / cartas[i].populacao);
+        float inversodensidade = (1 / cartas[i].densidade);
+        cartas[i].superpoder= (cartas[i].populacao + cartas[i].area + cartas[i].pib + cartas[i].pontos + cartas[i].capita + cartas[i].densidade);
     }
 
     printf("\n--------------------------------------------------------\n");
@@ -74,8 +78,9 @@ int main() {
         printf("Área: %.3f km²\n", cartas[i].area);
         printf("PIB: %.9f bilhões de reais\n", cartas[i].pib);
         printf("Número de Pontos Turísticos: %d\n", cartas[i].pontos);
-        printf("Densidade Populacional: %.2f hab/km²\n"cartas[i].densidade);
+        printf("Densidade Populacional: %.2f hab/km²\n",cartas[i].densidade);
         printf("PIB per Capita: %.2f reais\n", cartas[i].capita);
+        printf("Super Poder: %.2f \n", cartas[i].superpoder);
         printf("--------------------------------------------------------\n");
         printf("        Obrigado por participar, volte sempre!          \n");
     }
