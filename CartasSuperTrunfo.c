@@ -11,6 +11,8 @@ typedef struct {
     char estado;
     char codigo[4];
     char cidade[12];
+    float densidade;
+    float capita;
 } Carta;
 
 int main() {
@@ -55,6 +57,9 @@ int main() {
 
         printf("Número de pontos turísticos: \n");
         scanf("%d", &cartas[i].pontos);
+
+        cartas[i].densidade = (cartas[i].populacao / cartas[i].area); 
+        cartas[i].capita= (cartas[i].pib / cartas[i].populacao);
     }
 
     printf("\n--------------------------------------------------------\n");
@@ -69,6 +74,8 @@ int main() {
         printf("Área: %.3f km²\n", cartas[i].area);
         printf("PIB: %.9f bilhões de reais\n", cartas[i].pib);
         printf("Número de Pontos Turísticos: %d\n", cartas[i].pontos);
+        printf("Densidade Populacional: %.2f hab/km²\n"cartas[i].densidade);
+        printf("PIB per Capita: %.2f reais\n", cartas[i].capita);
         printf("--------------------------------------------------------\n");
         printf("        Obrigado por participar, volte sempre!          \n");
     }
