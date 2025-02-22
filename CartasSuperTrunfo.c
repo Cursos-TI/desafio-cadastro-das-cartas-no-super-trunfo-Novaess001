@@ -76,7 +76,7 @@ int main() {
     printf("\n----------Cartas Cadastradas com sucesso!---------------\n");
     printf("\n--------------------------------------------------------\n");
 
-    int pontos_carta 1 = 0, pontos_carta 2 = 0;
+    int pontos_carta1 = 0, pontos_carta2 = 0;
 
     printf("\nComparação dos atributos:\n");
 
