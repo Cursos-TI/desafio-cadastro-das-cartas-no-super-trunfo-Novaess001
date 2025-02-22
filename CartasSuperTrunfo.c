@@ -4,16 +4,16 @@
 
 typedef struct {
     int idade;
-    int populacao;h
-    int pontos;h
-    float area;h
-    double pib;h
+    int populacao;
+    int pontos;
+    float area;
+    double pib;
     char estado;
     char codigo[4];
     char cidade[12];
-    float densidade;h
-    float capita;h
-    float superpoder;h
+    float densidade;
+    float capita;
+    float superpoder;
     
 } Carta;
 
@@ -28,7 +28,8 @@ int main() {
 
     for (i = 0; i < jogo_cartas; i++) {
         printf("\n         Vamos inciar com o Cadastro da Carta %d\n", i + 1);
-    printf("--------------------------------------------------------\n");
+        printf("--------------------------------------------------------\n");
+        
         printf("Digite um número: \n");
         scanf("%d", &cartas[i].idade);
         printf("--------------------------------------------------------\n");
@@ -64,11 +65,69 @@ int main() {
         cartas[i].capita= (cartas[i].pib / cartas[i].populacao);
         float inversodensidade = (1 / cartas[i].densidade);
         cartas[i].superpoder= (cartas[i].populacao + cartas[i].area + cartas[i].pib + cartas[i].pontos + cartas[i].capita + cartas[i].densidade);
+        int vencedora = 0;
+        if (cartas[0].densidade < cartas[1].densidade){
+        vencedora = 1;
+        }
+
     }
 
     printf("\n--------------------------------------------------------\n");
     printf("\n----------Cartas Cadastradas com sucesso!---------------\n");
     printf("\n--------------------------------------------------------\n");
+
+    int pontos_carta 1 = 0, pontos_carta 2 = 0;
+
+    printf("\nComparação dos atributos:\n");
+
+    if (cartas[0].idade > cartas[1].idade) {
+        pontos_carta1++;
+        printf("Idade: Carta 1 venceu\n");
+    } else if (cartas[0].idade < cartas[1].idade) {
+        pontos_carta2++;
+        printf("Idade: Carta 2 venceu\n");
+    }
+
+    if (cartas[0].populacao > cartas[1].populacao) {
+        pontos_carta1++;
+        printf("População: Carta 1 venceu\n");
+    } else if (cartas[0].populacao < cartas[1].populacao) {
+        pontos_carta2++;
+        printf("População: Carta 2 venceu\n");
+    }
+
+    if (cartas[0].area > cartas[1].area) {
+        pontos_carta1++;
+        printf("Área: Carta 1 venceu\n");
+    } else if (cartas[0].area < cartas[1].area) {
+        pontos_carta2++;
+        printf("Área: Carta 2 venceu\n");
+    }
+
+    if (cartas[0].pib > cartas[1].pib) {
+        pontos_carta1++;
+        printf("PIB: Carta 1 venceu\n");
+    } else if (cartas[0].pib < cartas[1].pib) {
+        pontos_carta2++;
+        printf("PIB: Carta 2 venceu\n");
+    }
+
+    if (cartas[0].pontos > cartas[1].pontos) {
+        pontos_carta1++;
+        printf("Pontos turísticos: Carta 1 venceu\n");
+    } else if (cartas[0].pontos < cartas[1].pontos) {
+        pontos_carta2++;
+        printf("Pontos turísticos: Carta 2 venceu\n");
+    }
+
+    if (cartas[0].densidade > cartas[1].densidade) {
+        pontos_carta1++;
+        printf("Densidade populacional: Carta 1 venceu\n");
+    } else if (cartas[0].densidade < cartas[1].densidade) {
+        pontos_carta2++;
+        printf("Densidade populacional: Carta 2 venceu\n");
+    }
+     
     for (i = 0; i < jogo_cartas; i++) {
         printf("\nCarta %d\n", i + 1);
         printf("Estado: %c\n", cartas[i].estado);
@@ -86,4 +145,4 @@ int main() {
     }
 
     return 0;
-}
+}*
