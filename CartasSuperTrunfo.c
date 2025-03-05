@@ -4,9 +4,7 @@
 #define jogo_cartas 2
 
 typedef struct {
-    int idade;
-    int populacao;
-    int pontos;
+    int pontos, populacao;
     float area;
     double pib;
     char estado;
@@ -18,7 +16,7 @@ typedef struct {
 } Carta;
 
 int main() {
-    setlocale(LC_CTYPE,"portuguese");
+    setlocale(LC_CTYPE,"pt_BR.UTF-8");
 
 
     Carta cartas[jogo_cartas];  
@@ -31,10 +29,6 @@ int main() {
 
     for (i = 0; i < jogo_cartas; i++) {
         printf("\n         Vamos iniciar com o Cadastro da Carta %d\n", i + 1);
-        printf("--------------------------------------------------------\n");
-        
-        printf("Digite um número: \n");
-        scanf("%d", &cartas[i].idade);
         printf("--------------------------------------------------------\n");
 
         printf("Escolha uma letra de 'A a H': \n");
@@ -96,17 +90,66 @@ int main() {
     for (i = 0; i < jogo_cartas; i++) {
         printf("\nCarta %d\n", i + 1);
         printf("Estado: %c\n", cartas[i].estado);
-        printf("Código: %s\n", cartas[i].codigo);
+        printf("Código: %c%s\n", cartas[i].estado, cartas[i].codigo);
         printf("Nome da Cidade: %s\n", cartas[i].cidade);
         printf("População: %d\n", cartas[i].populacao);
-        printf("Área: %.3f km²\n", cartas[i].area);
-        printf("PIB: %.9f bilhões de reais\n", cartas[i].pib);
+        printf("Área: %.2f km²\n", cartas[i].area);
+        printf("PIB: %.2f bilhões de reais\n", cartas[i].pib);
         printf("Número de Pontos Turísticos: %d\n", cartas[i].pontos);
         printf("Densidade Populacional: %.2f hab/km²\n", cartas[i].densidade);
         printf("PIB per Capita: %.2f reais\n", cartas[i].capita);
         printf("Super Poder: %.2f \n", cartas[i].superpoder);
         printf("--------------------------------------------------------\n");
     }
+    int comparacao_carta1 = 0, comparacao_carta2 = 0;
+    int escolhaJogador;
+
+    for (i = 0; i < jogo_cartas; i++) {
+        
+        printf("Agora vamos fazer a comparação, Carta %d\n", i + 1);
+        printf("Escolha um atributo \n");
+        printf("\nCarta %d\n", i + 1);
+        printf("\n1. Nome do País \n");
+        printf("2. População \n");
+        printf("3. Área \n");
+        printf("4. PIB \n");
+        printf("5. Número de pontos turísticos \n");
+        printf("6. Densidade demográfica \n");
+        scanf("%d", &escolhaJogador);
+        }
+        switch (escolhaJogador){
+                case 1:
+                printf("Carta 1: País - \n");
+                break;
+                
+                case 2:
+                printf("Carta 1: População - \n");
+                break;
+            
+                case 3:
+                printf("Carta 1: Área - \n");
+                break;
+
+                case 4:
+                printf("Carta 1: PIB - \n");
+                break;
+
+                case 5:
+                printf("Carta 1: Número de pontos turísticos - \n");
+                break;
+                
+                case 6:
+                printf("Carta 1: Densidade demográfica - \n");
+                break;
+            
+            
+
+            default:    
+                printf("Opção invalida!\n");
+                break;
+            }
+
+
 
     printf("        Obrigado por participar, volte sempre!          \n");
 
