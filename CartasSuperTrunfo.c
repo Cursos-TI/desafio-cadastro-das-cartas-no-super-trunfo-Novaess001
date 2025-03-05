@@ -19,7 +19,7 @@ void compararCartas(Carta jogador1, Carta jogador2, int atributo) {
     float valorjogador1 = 0, valorjogador2 = 0;
     char atributonome[50];
 
-    A
+    
     switch (atributo) {
         case 1:
             sprintf(atributonome, "População");
