@@ -15,96 +15,66 @@ typedef struct {
     float superpoder;
 } Carta;
 
-
 void compararCartas(Carta jogador1, Carta jogador2, int atributo) {
-
     float valorjogador1 = 0, valorjogador2 = 0;
-    char atributonome[10];
+    char atributonome[50];
 
+    A
     switch (atributo) {
         case 1:
-            printf("Atributo escolhido: População - \n");
-            if (jogador1.populacao > jogador2.populacao) {
-                printf("Carta 1 Venceu!\n");
-            } else if (jogador1.populacao < jogador2.populacao) {
-                printf("Carta 2 Venceu! \n");
-            } else {
-                printf("Empate! \n");
-            }
+            sprintf(atributonome, "População");
+            valorjogador1 = jogador1.populacao;
+            valorjogador2 = jogador2.populacao;
             break;
-
         case 2:
-            printf("Atributo escolhido: Área - \n");
-            if (jogador1.area > jogador2.area) {
-                printf("Carta 1 Venceu! \n");
-            } else if (jogador1.area < jogador2.area) {
-                printf("Carta 2 Venceu! \n");
-            } else {
-                printf("Empate! \n");
-            }
+            sprintf(atributonome, "Área");
+            valorjogador1 = jogador1.area;
+            valorjogador2 = jogador2.area;
             break;
-
         case 3:
-            printf("Atributo escolhido: PIB - \n");
-            if (jogador1.pib > jogador2.pib) {
-                printf("Carta 1 Venceu! \n");
-            } else if (jogador1.pib < jogador2.pib) {
-                printf("Carta 2 Venceu! \n");
-            } else {
-                printf("Empate! \n");
-            }
+            sprintf(atributonome, "PIB");
+            valorjogador1 = jogador1.pib;
+            valorjogador2 = jogador2.pib;
             break;
-
         case 4:
-            printf("Atributo escolhido: Número de pontos turísticos - \n");
-            if (jogador1.pontos > jogador2.pontos) {
-                printf("Carta 1 Venceu! \n");
-            } else if (jogador1.pontos < jogador2.pontos) {
-                printf("Carta 2 Venceu! \n");
-            } else {
-                printf("Empate! \n");
-            }
+            sprintf(atributonome, "N° de Pontos Turísticos");
+            valorjogador1 = jogador1.pontos;
+            valorjogador2 = jogador2.pontos;
             break;
-
         case 5:
-            printf("Atributo escolhido: Densidade demográfica - \n");
-            if (jogador1.densidade > jogador2.densidade) {
-                printf("Carta 1 Venceu! \n");
-            } else if (jogador1.densidade < jogador2.densidade) {
-                printf("Carta 2 Venceu! \n");
-            } else {
-                printf("Empate! \n");
-            }
+            sprintf(atributonome, "Densidade Demográfica");
+            valorjogador1 = jogador1.densidade;
+            valorjogador2 = jogador2.densidade;
             break;
-
         default:
             printf("Opção inválida!\n");
-            break;
+            return;
     }
 
-
-printf("\n--------------------------------------------------------\n");
-printf("Resultado da Comparação \n");
-printf("Atributo escolhido: %s\n", atributonome);
-printf("Carta 1 - %s: %.2f\n",jogador1.cidade, valorjogador1);
-printf("Carta 2 - %s: %.2f\n",jogador2.cidade, valorjogador2);
-
-if (valorjogador1 > valorjogador2){
-    printf("Carta 1 %s Venceu! \n", jogador1.cidade);
     
-} else if (valorjogador1 < valorjogador2){
-    printf("Carta 2 %s Venceu! \n", jogador2.cidade);
-}
- else{
-    printf("Empate! \n");
- }
+    printf("\n--------------------------------------------------------\n");
+    printf("Resultado da Comparação \n");
+    printf("Atributo escolhido: %s\n", atributonome);
+    printf("Carta 1 - %s: %.2f\n", jogador1.cidade, valorjogador1);  
+    printf("Carta 2 - %s: %.2f\n", jogador2.cidade, valorjogador2);  
 
- printf("\n--------------------------------------------------------\n");
+    
+    if (valorjogador1 > valorjogador2){
+        printf("Carta 1 Venceu! \n");
+    } else if (valorjogador1 < valorjogador2){
+        printf("Carta 2 Venceu! \n");
+    } else {
+        printf("Empate! \n");
+    }
 
+    printf("\n--------------------------------------------------------\n");
 }
+
+
 int main() {
     setlocale(LC_CTYPE, "pt_BR.UTF-8");
 
+    
     Carta cartas[jogo_cartas];  
     int i;
 
@@ -145,7 +115,6 @@ int main() {
         printf("Número de pontos turísticos: \n");
         scanf("%d", &cartas[i].pontos);
 
-       
         if (cartas[i].area != 0) 
             cartas[i].densidade = cartas[i].populacao / cartas[i].area; 
         else 
@@ -159,28 +128,28 @@ int main() {
     printf("\n----------Cartas Cadastradas com sucesso!---------------\n");
     printf("\n--------------------------------------------------------\n");
 
-    int pontos_carta1 = 0, pontos_carta2 = 0;
-
     
     int escolhaJogador;
-    do {
-        printf("\nEscolha um atributo para comparar as cartas:\n");
-        printf("1. População \n");
-        printf("2. Área \n");
-        printf("3. PIB \n");
-        printf("4. Número de pontos turísticos \n");
-        printf("5. Densidade demográfica \n");
-        printf("6. Sair \n");
-        scanf("%d", &escolhaJogador);
+    
+    
+    printf("\nEscolha um atributo para comparar as cartas:\n");
+    printf("1. População \n");
+    printf("2. Área \n");
+    printf("3. PIB \n");
+    printf("4. Número de pontos turísticos \n");
+    printf("5. Densidade demográfica \n");
+    printf("6. Sair \n");
+    scanf("%d", &escolhaJogador);
 
-        if (escolhaJogador >= 1 && escolhaJogador <= 5) {
-            printf("\nComparando as Cartas: \n");
-            compararCartas(cartas[0], cartas[1], escolhaJogador);
-        }
-
-    } while (escolhaJogador != 1);
-
-    printf("Obrigado por participar, volte sempre!\n");
+    
+    if (escolhaJogador >= 1 && escolhaJogador <= 5) {
+        printf("\nComparando as Cartas: \n");
+        compararCartas(cartas[0], cartas[1], escolhaJogador);
+    } else if (escolhaJogador == 6) {
+        printf("Obrigado por participar, volte sempre!\n");
+    } else {
+        printf("Opção inválida! Programa encerrado.\n");
+    }
 
     return 0;
 }
