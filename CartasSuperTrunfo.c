@@ -19,7 +19,7 @@ void compararCartas(Carta jogador1, Carta jogador2, int atributo) {
     float valorjogador1 = 0, valorjogador2 = 0;
     char atributonome[50];
 
-    
+   
     switch (atributo) {
         case 1:
             sprintf(atributonome, "População");
@@ -54,14 +54,15 @@ void compararCartas(Carta jogador1, Carta jogador2, int atributo) {
     
     printf("\n--------------------------------------------------------\n");
     printf("Resultado da Comparação \n");
-    printf("Atributo escolhido: %s\n", atributonome);
+    printf("\nAtributo escolhido: %s\n", atributonome);
     printf("Carta 1 - %s: %.2f\n", jogador1.cidade, valorjogador1);  
     printf("Carta 2 - %s: %.2f\n", jogador2.cidade, valorjogador2);  
+    
 
     
-    if (valorjogador1 > valorjogador2){
+    if (valorjogador1 > valorjogador2) {
         printf("Carta 1 Venceu! \n");
-    } else if (valorjogador1 < valorjogador2){
+    } else if (valorjogador1 < valorjogador2) {
         printf("Carta 2 Venceu! \n");
     } else {
         printf("Empate! \n");
@@ -70,11 +71,9 @@ void compararCartas(Carta jogador1, Carta jogador2, int atributo) {
     printf("\n--------------------------------------------------------\n");
 }
 
-
 int main() {
     setlocale(LC_CTYPE, "pt_BR.UTF-8");
 
-    
     Carta cartas[jogo_cartas];  
     int i;
 
@@ -128,28 +127,34 @@ int main() {
     printf("\n----------Cartas Cadastradas com sucesso!---------------\n");
     printf("\n--------------------------------------------------------\n");
 
-    
-    int escolhaJogador;
-    
-    
-    printf("\nEscolha um atributo para comparar as cartas:\n");
+ 
+    int escolhaCarta1, escolhaCarta2;
+
+    printf("\nEscolha um atributo da carta 1 para comparar:\n");
     printf("1. População \n");
     printf("2. Área \n");
     printf("3. PIB \n");
     printf("4. Número de pontos turísticos \n");
     printf("5. Densidade demográfica \n");
     printf("6. Sair \n");
-    scanf("%d", &escolhaJogador);
+    scanf("%d", &escolhaCarta1);
+
+    if (escolhaCarta1 == 6) {
+        printf("Obrigado por participar, volte sempre!\n");
+        return 0;
+    }
+
+    printf("Agora escolha o segundo atributo para comparar: \n");
+    scanf("%d", &escolhaCarta2);
+
+    if (escolhaCarta1 < 1 || escolhaCarta1 > 5 || escolhaCarta2 < 1 || escolhaCarta2 > 5) {
+        printf("Opção inválida! Programa encerrado.\n");
+        return 0;
+    }
 
     
-    if (escolhaJogador >= 1 && escolhaJogador <= 5) {
-        printf("\nComparando as Cartas: \n");
-        compararCartas(cartas[0], cartas[1], escolhaJogador);
-    } else if (escolhaJogador == 6) {
-        printf("Obrigado por participar, volte sempre!\n");
-    } else {
-        printf("Opção inválida! Programa encerrado.\n");
-    }
+    printf("\nComparando as Cartas:\n");
+    compararCartas(cartas[0], cartas[1], escolhaCarta1);
 
     return 0;
 }
